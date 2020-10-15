@@ -2,7 +2,7 @@
   "name": "zn-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://[nandehutuzn].github.io/zn-blog",
+  "homepage": "https://nandehutuzn.github.io/zn-blog",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
