@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to My GitHub Pages"/>
+    <HelloWorld msg="Welcome to Zn GitHub Pages"/>
   </div>
 </template>
 
