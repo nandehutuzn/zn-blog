@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/zn-blog'
+  // publicPath: '/zn-blog'
 }
