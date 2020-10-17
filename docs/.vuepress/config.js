@@ -4,6 +4,21 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  themeConfig: {
+    sidebar: 'auto',
+    nav: [
+      { text: '主页', link: '/' },
+      {
+        text: '文章',
+        items: [
+          { text: '前端', link: '/frontend' },
+          { text: '算法', link: '/algorithm' },
+          { text: '生活', link: '/life'}
+        ]
+      },
+      { text: 'GitHub', link: 'https://github.com/nandehutuzn/zn-blog' }
+    ]
+  },
   plugins: [
     // 你可以多次使用这个插件
     [
