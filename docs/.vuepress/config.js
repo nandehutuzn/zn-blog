@@ -8,14 +8,9 @@ module.exports = {
     sidebar: 'auto',
     nav: [
       { text: '主页', link: '/' },
-      {
-        text: '文章',
-        items: [
-          { text: '前端', link: '/frontend' },
-          { text: '算法', link: '/algorithm' },
-          { text: '生活', link: '/life'}
-        ]
-      },
+      { text: '前端', link: '/frontend/' },
+      { text: '算法', link: '/algorithm/' },
+      { text: '生活', link: '/life/' },
       { text: 'GitHub', link: 'https://github.com/nandehutuzn/zn-blog' }
     ]
   },
@@ -48,5 +43,6 @@ module.exports = {
         },
       },
     ],
+    'vuepress-plugin-nprogress'
   ],
 }

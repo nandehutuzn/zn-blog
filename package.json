@@ -35,7 +35,8 @@
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.7.1",
-    "vuepress-plugin-container": "^2.1.5"
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-nprogress": "^1.1.8"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
