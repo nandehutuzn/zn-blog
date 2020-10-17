@@ -1,3 +1,3 @@
 # 前端汇总
 ---  
-<list />
+<frontend-list />
