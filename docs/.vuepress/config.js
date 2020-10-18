@@ -9,6 +9,7 @@ module.exports = {
     nav: [
       { text: '主页', link: '/' },
       { text: '前端', link: '/frontend/' },
+      { text: '.NET', link: '/dotnet/' },
       { text: '算法', link: '/algorithm/' },
       { text: '生活', link: '/life/' },
       { text: 'GitHub', link: 'https://github.com/nandehutuzn/zn-blog' }
