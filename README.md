@@ -1,4 +1,5 @@
 # zn-blog
+用markdown写个人博客，支持CI/CD, 地址：https://lbjning.com
 
 ## Project setup
 ```
