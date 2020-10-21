@@ -26,7 +26,7 @@ getDOM() {
   return this._dom
 }
 ```
-### 获取oldDOM
+## 获取oldDOM
 ::: tip
   上面 **this.getDOM()** 实例方法解释下，即用来获取该组件对应的真实 DOM 对象，再从这个真实DOM对象中获取到其对应的virtualDOM来和上面 **this.render()** 返回最新的virtualDOM 做对比，那什么时候会将该DOM对象赋值给该组件呢，也就是 **setDOM()** 方法是什么时候执行的呢？这个方法在前面已经出现过，**mountNativeElement** 将原生标签挂载到页面时会调用，完整代码如下：
 :::
@@ -107,7 +107,7 @@ function isFunctionComponent(virtualDOM) {
   从上面的代码中可以看到，虽然第一个参数传入了一个virtualDOM对象，但是后面真正去挂载的时候并没有使用它，而是使用了virtualDOM.type() 新创建的一个virtualDOM对象，在代码中是**nextVirtualDOM** 对象，如果传入的virtualDOM.type 是一个构造函数，那么会调用该构造函数生成一个component实例，保存在**nextVirtualDOM.component**属性中
 :::
 
-### 执行diff
+## 执行diff
 
 ::: tip
   diff 方法的三个参数 virtualDOM, container, oldDOM 都拿到了，看看diff 方法的完整逻辑：
