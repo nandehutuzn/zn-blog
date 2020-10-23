@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/fiber1">Fiber 原理（一）</a>
     <a href="/frontend/react2">React原理（二）</a>
     <a href="/frontend/react1">React原理（一）</a>
     <a href="http://mp.weixin.qq.com/s?__biz=MzIwNjc5ODA1Mw==&mid=2247484101&idx=1&sn=a31e1fdb15842596f7aa3baa3257944b&chksm=971d6f4fa06ae65914affb2f86e6905fc9ea98c4f0cb22b4e9b64e89dfe0b4f873331a47ba4d&token=181237259&lang=zh_CN#rd">用GitHub Pages搭建支持CI/CD的个人网站</a>

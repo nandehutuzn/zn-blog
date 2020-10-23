@@ -44,6 +44,26 @@ module.exports = {
         },
       },
     ],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'warning',
+        defaultTitle: {
+          '/': '',
+          '/zh/': '警告',
+        },
+      },
+    ],
+    [
+      'vuepress-plugin-container',
+      {
+        type: 'danger',
+        defaultTitle: {
+          '/': '',
+          '/zh/': '危险',
+        },
+      },
+    ],
     'vuepress-plugin-nprogress'
   ],
 }
