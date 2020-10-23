@@ -5,7 +5,7 @@
 ## executeTask
 
 ::: tip
-  还是先从程序刚启动开始，第一次进入 executeTask 方法，参数 fiber 只有两个属性，一个是要渲染的 virtualDOM，放在fiber.props.children属性上，还有一个是dom，为需要挂载的DOM元素，可以理解为container， 接下来执行 **reconcileChildren()** 方法，传入的两个参数，一个是fiber，另一个就是当前fiber对象对应的virtualDOM。
+  还是先从程序刚启动开始，第一次进入 executeTask 方法，参数 fiber 只有两个属性，一个是要渲染的 virtualDOM，放在fiber.props.children属性上，还有一个是dom，为需要挂载的DOM元素，可以理解为container， 接下来执行 **reconcileChildren()** 方法，传入的两个参数，一个是fiber，另一个就是当前fiber对象下所有子节点的virtualDOM。
 :::
 
 ``` js
