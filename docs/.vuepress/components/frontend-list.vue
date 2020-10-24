@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/webpack">Webpack 简单实现</a>
     <a href="/frontend/fiber2">Fiber 原理（二）</a>
     <a href="/frontend/fiber1">Fiber 原理（一）</a>
     <a href="/frontend/react2">React 原理（二）</a>
