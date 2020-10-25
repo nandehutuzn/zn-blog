@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/http">HTTP 网络协议</a>
     <a href="/frontend/reactivity">Vue3.0 中的响应式系统简单实现</a>
     <a href="/frontend/webpack">Webpack 简单实现</a>
     <a href="/frontend/fiber2">Fiber 原理（二）</a>
