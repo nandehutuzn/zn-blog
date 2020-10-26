@@ -246,6 +246,8 @@ export function computed(getter) {
   *刚学React没多久，如果对React的理解有不到位的地方，请多包涵*
 
   [项目地址](https://github.com/nandehutuzn/my_reactivity.git)
+
+  [回首页](/frontend)
 :::
 
 （完）

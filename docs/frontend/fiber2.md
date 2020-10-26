@@ -189,6 +189,8 @@ const executeTask = fiber => {
   commitAllWork 方法做的事情就比较清晰明了了，根据 effectTag 属性值做不同的DOM操作，配合fiber对象中的parent、stateNode属性基本能完成对DOM元素的新增、删除、替换、更新操作。前面好像没有提到 **effectTag** 这个属性，fiber.tag是节点标记，可能是根结点，类组件结点，函数组件结点等，而fiber.effectTag 表示当前 fiber 要被执行的操作，新增、删除、修改等。对于它的赋值也是在 **reconcileChildren()** 方法中创建 newFiber 时完成的。
 
   [项目完整代码](https://gitee.com/zn3102090109/fiber.git)
+
+  [回首页](/frontend)
 :::
 
 （完）

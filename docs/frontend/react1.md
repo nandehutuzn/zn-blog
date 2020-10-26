@@ -129,5 +129,9 @@ function updateNodeElement(newElement, virtualDOM, oldVirtualDOM = {}) {
 </div>
 ```
 ::: tip
-  到这里组件第一次渲染过程就结束了，后面看看组件更新过程
+  到这里组件第一次渲染过程就结束了，后面看看组件更新过程。
+
+  [直接跳到（React 原理2）](/frontend/react2)
+  
+  [回首页](/frontend)
 :::

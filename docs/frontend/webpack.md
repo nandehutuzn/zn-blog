@@ -279,4 +279,8 @@ fs.writeFileSync('./dist/bundle.js', content)
   除此之外，还可以给webpack配置合适的 **plugin**，如果说 loader 是一个翻译官的话，那 plugin 就像是高速路上的休息站，告诉你已经到了哪里，你可以在这里中断一下，做你想做的事。用专业点的话说是这里用到了设计模式中的 **IOC(依赖注入)** 设计模式， 在webpack编译的过程中给开发者留了足够多的口子，开发者通过 plugin 通过这个口子注入想执行的操作，比如在编译过程想移除文件中的注释，或者打包结束后想对生成文件再进行一次压缩，通过 plugin 都可以实现。
 
   [项目地址](https://github.com/nandehutuzn/my_webpack)
+
+  [回首页](/frontend)
 :::
+
+（完）

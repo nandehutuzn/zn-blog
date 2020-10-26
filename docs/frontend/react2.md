@@ -251,4 +251,8 @@ function updateTextNode(virtualDOM, oldVirtualDOM, oldDOM) {
   * 再更新子节点，根据子节点是否设置**key**属性做不同处理，如果没有，则对每个child分别调用diff方法处理。如果child组件设置了**key**属性，则先将每个key和对应的DOM缓存起来，再遍历新的virtualDOM.children属性，检查每个child的key是否已缓存，如果缓存了，则直接取出并复用，如果没有，则调用**mountElement**方法挂载一个新的元素，最后删除没用到的结点。
 
   4. [项目完整地址](https://gitee.com/zn3102090109/tiny-react)
+  
+  [回首页](/frontend)
 :::
+
+（完）
