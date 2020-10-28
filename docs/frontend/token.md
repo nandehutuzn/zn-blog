@@ -25,7 +25,7 @@
 ### Session
 
 ::: tip
-  这里的 Session 和 HTML5 中的  sessionStorage 不是一个东西，这里的 Session 可以理解为 SessionId，客户端登录成功，服务端生成一个 SessionId，保存并返回给客户端，以后客户端每次请求带上这个 SessionId 就表示当前用户已登录，有权限做其他操作。这样也弊端，首先是等于在服务端维护着每个客户的状态，如果客户数量很多，那对服务端是一个考验，再就是服务端的 SessionId 保存在哪台服务器上呢？你这台服务器上有那个客户的 SessionId，那如果这个客户的请求被转发到了其他服务器怎么办，可能会说把 SessionId 都保存在统一入口那里，那对入口服务器也会是一个很大考验。*Session 不仅仅是SessionId，它包含状态相关的多个信息，通过SessionId来标识，保存在服务端，与此相对应的，Cookie是会话信息保存在客户端*
+  这里的 Session 和 HTML5 中的  sessionStorage 不是一个东西，这里的 Session 可以理解为 SessionId，客户端登录成功，服务端生成一个 SessionId，保存并返回给客户端，以后客户端每次请求带上这个 SessionId 就表示当前用户已登录，有权限做其他操作。这样也弊端，首先是等于在服务端维护着每个客户的状态，如果客户数量很多，那对服务端是一个考验，再就是服务端的 SessionId 保存在哪台服务器上呢？你这台服务器上有那个客户的 SessionId，那如果这个客户的请求被转发到了其他服务器怎么办，可能会说把 SessionId 都保存在统一入口那里，那对入口服务器也会是一个很大考验。*Session 不仅仅是SessionId，它包含客户状态相关的多个信息，通过SessionId来标识，保存在服务端，与此相对应的，Cookie是会话信息保存在客户端*
 :::
 
 ### Token
