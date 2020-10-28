@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <a href="/frontend/token">Web 用户认证</a>
+    <a href="/frontend/token">结合我行一些实践,聊聊 Web 用户认证</a>
     <a href="/frontend/https">HTTPS 原理</a>
     <a href="/frontend/http">HTTP 网络协议</a>
     <a href="/frontend/reactivity">Vue3.0 中的响应式系统简单实现</a>
