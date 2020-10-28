@@ -122,6 +122,7 @@
   | Domain | 生成该 Cookie 的域名，如 domain='www.baidu.com'，正常情况下 Cookie 是只能在一个域名下使用，如果想在多个二级域名中使用同一个 Cookie，可以设置该值为 .baidu.com |
   | Path | 该 Cookie 是在当前的哪个路径下生成的，如 path=/wp-admin/ |
   | Secure | 如果设置了这个属性，那么只会在 SSL 连接时才会回传该 Cookie |
+  | HttpOnly | Cookie 信息只读 | 
 
 :::
 
