@@ -197,7 +197,7 @@ function logError (err, vm, info) {
 }
 ```
 
-  Vue 组件中的异常处理逻辑还是比较简单的，先是 errorCaptured 处理，最后是 globalHandleError 处理，就算什么都不做，Vue 也只是将错误通过 **logError** 方法将错误输出到控制台，这样 Vue 组件中的异常通过 **window.onerror** 是捕获不到的。
+  Vue 组件中的异常处理逻辑还是比较简单的，先是 errorCaptured 处理，最后是 globalHandleError 处理，就算什么都不做，Vue 也只是将错误通过 **logError** 方法将错误输出到控制台，Vue 框架自己消化掉，防止程序奔溃，这样 Vue 组件中的异常通过 **window.onerror** 是捕获不到的。
 
   源码中的方法调用都通过try catch 包裹起来了，并在catch块中调用 **handleError** 方法，这样项目中的运行时错误都可以被捕获到。
 
