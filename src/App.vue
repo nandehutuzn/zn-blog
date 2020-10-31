@@ -7,7 +7,14 @@
     <router-view/>
   </div>
 </template>
-
+<script>
+export default {
+  errorCaptured (error, vm, info) {
+    console.log('home componet', error, vm, info)
+    return false
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

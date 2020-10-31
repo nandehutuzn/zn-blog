@@ -8,12 +8,16 @@ Vue.config.productionTip = false
 window.onerror = (msg, url, lineNo, columnNo, error) => {
   console.log('window.error')
   console.log(msg, url, lineNo, columnNo, error)
-  return true
 }
-console.log(window.onerror)
-window.addEventListener('error', evt => {
-  console.log('window addlistener error', evt)
-})
+
+// var a = {}
+// a.bb.cc = '12'
+// console.log(a)
+
+Vue.config.errorHandler = (error, vm, info) => {
+  console.log('Vue.config.errorHandler')
+  console.log(error, vm, info)
+}
 new Vue({
   router,
   store,

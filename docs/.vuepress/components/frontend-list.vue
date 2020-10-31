@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/vue-error">为什么用window.onerror事件捕获不到Vue组件的异常（源码级别）</a>
     <a href="/frontend/jsonp">JSONP 方法原理及实现</a>
     <a href="/frontend/token">Web 用户认证</a>
     <a href="/frontend/https">HTTPS 原理</a>

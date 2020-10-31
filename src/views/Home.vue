@@ -16,8 +16,8 @@ export default {
   },
   methods: {
     throwException () {
-      var a = 34
-      a.bb = 123
+      var a = {}
+      a.bb.cc = '12'
       console.log(a)
     }
   }
