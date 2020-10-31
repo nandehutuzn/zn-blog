@@ -160,14 +160,14 @@ export function handleError (err: Error, vm: any, info: string) {
             // 如果父组件 errorCaptured 方法返回 false，则直接 return，结束异常处理流程
             if (capture) return
           } catch (e) {
-            // 如果 errorCaptured 方法抛出异常，则将错误抛到 Vue.config.errorHandler 注册的方法中
+            // 如果执行 errorCaptured 方法抛出异常，则执行 Vue.config.errorHandler 注册的方法
             globalHandleError(e, cur, 'errorCaptured hook')
           }
         }
       }
     }
   }
-  // 最后再抛到 Vue.config.errorHandler 注册的方法中
+  // 最后再执行 Vue.config.errorHandler 注册的方法中
   globalHandleError(err, vm, info)
 }
 
@@ -176,7 +176,7 @@ function globalHandleError (err, vm, info) {
     try {
       return config.errorHandler.call(null, err, vm, info)
     } catch (e) {
-      // 如果 Vue.config.errorHandler 方法抛出异常，则直接将错误打印到控制台
+      // 如果 Vue.config.errorHandler 方法出现异常，则直接将错误打印到控制台
       logError(e, null, 'config.errorHandler')
     }
   }
