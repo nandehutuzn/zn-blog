@@ -47,6 +47,7 @@ const jsonp = ({ url, params, callbackName }) => {
       resolve(data)
       // 请求完毕，移除多余 script 标签
       document.body.removeChild(scriptEle)
+      window[callbackName] = null
     }
   })
 }
