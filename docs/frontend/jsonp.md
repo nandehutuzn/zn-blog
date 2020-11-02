@@ -91,4 +91,8 @@ jsonp({
 
 ::: tip
   与 CORS 相比，JSONP 最大的优势在于兼容性好，IE低版本不能使用 CORS，但是可以使用JSONP，缺点也很明显，请求方法单一，只支持 GET 请求。
+
+  [回首页](/frontend)
 :::
+
+（完）
