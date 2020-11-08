@@ -1,4 +1,4 @@
-# @vue/cli-service 原理
+# @vue/cli-service 插件原理
 ---
 *2020/11/08*
 
