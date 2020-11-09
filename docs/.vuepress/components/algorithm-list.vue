@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/algorithm/20201109">一次性看完十种排序算法</a>
     <a href="/algorithm/20201105">分别用JS Array 和 LinkedList 实现 LRU</a>
     <a href="/algorithm/20201104">几个二叉树相关的算法题</a>
     <a href="/algorithm/20201103">2020美团前端的几个算法题</a>
