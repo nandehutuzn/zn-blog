@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/v8-gc">V8 引擎垃圾回收机制</a>
     <a href="/frontend/cli-service">从源码了解 @vue/cli-service 插件原理为开发提速</a>
     <a href="/frontend/net">浏览器原生网络请求方法及跨域处理</a>
     <a href="/frontend/create-dom">从Chrome源码看浏览器如何构建DOM树</a>
