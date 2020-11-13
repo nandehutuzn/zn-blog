@@ -133,7 +133,7 @@ ele.setAttribute('name', 'my-class')
 ### API 使用场景
 
 ::: tip
-  监视某个 DOM 元素属性、子元素的修改，可用于监控系统中 `Web 页面录制(rrweb)` 等。
+  监视某个 DOM 元素属性、子元素的修改，可用于监控系统中 `Web 页面录制(rrweb)`，`Vue.prototype.$nextTick` 等。
 :::
 
 ## ResizeObserver 
