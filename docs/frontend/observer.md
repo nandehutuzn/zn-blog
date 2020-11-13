@@ -264,7 +264,7 @@ setTimeout(() => {
 ### API 使用场景
 
 ::: tip
-  `PerformanceObserver` 主要用于监测指定条目的性能，此特性可以在 `Web Worker` 中使用。
+  `PerformanceObserver` 主要用于监测指定条目的性能，可在监控系统中使用。此特性可以在 `Web Worker` 中使用。
 
   [回首页](/frontend)
 :::
