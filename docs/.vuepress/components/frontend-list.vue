@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/csp">XSS 攻击及 CSP</a>
     <a href="/frontend/observer">现代浏览器提供的四个 Web Observer 对象</a>
     <a href="/frontend/cjs">Node 模块加载机制</a>
     <a href="/frontend/v8-gc">V8 引擎垃圾回收机制</a>
