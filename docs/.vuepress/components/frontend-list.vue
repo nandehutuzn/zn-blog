@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/frontend/regex">正则表达式学习</a>
     <a href="/frontend/yahoo">雅虎前端优化的35条军规</a>
     <a href="/frontend/csp">XSS 攻击及 CSP</a>
     <a href="/frontend/observer">现代浏览器提供的四个 Web Observer 对象</a>
