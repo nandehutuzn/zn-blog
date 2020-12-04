@@ -130,7 +130,7 @@ renderRow = () => {
   }
 ```
 
-  或者，是时候拥抱 **React Hooks** 了。
+  或者，是时候拥抱 **React/Vue Hooks** 了。
 :::
 
 ## 箭头函数的 this 指向
