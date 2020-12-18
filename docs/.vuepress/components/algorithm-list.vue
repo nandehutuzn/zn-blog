@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/algorithm/20201219">汉诺塔问题</a>
     <a href="/algorithm/20201109">一次性看完十种排序算法</a>
     <a href="/algorithm/20201107">2020阿里前端的两个面试题</a>
     <a href="/algorithm/20201105">分别用JS Array 和 LinkedList 实现 LRU（字节跳动）</a>
