@@ -1,4 +1,4 @@
-# CommonJS 和 ESM 中的循环引用
+# CommonJS 和 ESM 中的循环依赖
 ---
 *2020/12/18*
 
