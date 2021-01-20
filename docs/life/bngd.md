@@ -4,6 +4,6 @@
 
 ![图一](./assets/bngd.jpg)
 
-[下载](/《百年孤独》.xmind)
+[下载](/bngd.xmind.xmind)
 
 [回首页](/life)
