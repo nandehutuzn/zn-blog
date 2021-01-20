@@ -4,6 +4,6 @@
 
 ![图一](./assets/bngd.jpg)
 
-[下载](/bngd.xmind)
+[xmind文件下载](/bngd.xmind)
 
 [回首页](/life)
