@@ -1,5 +1,6 @@
 <template>
   <div class="list">
+    <a href="/life/bngd">《百年孤独》思维导图</a>
     <a href="/life/marathon">一个普通人的马拉松</a>
     <a href="https://note.youdao.com/ynoteshare1/index.html?id=7af0e0a310e0fd582e98198fb8cc3d2c&type=note">《我做过的100道家常菜菜谱》(持续更新...)</a>
     <a href="https://mp.weixin.qq.com/s?__biz=MzIwNjc5ODA1Mw==&mid=2247484029&idx=1&sn=32a831a5b737be7ddeec652bfb402296&chksm=971d6ff7a06ae6e1d37ed663381dfdbce45fff49c643412b091ae98b00ae414e447b4247c207&token=181237259&lang=zh_CN#rd">《大学》-1</a>
