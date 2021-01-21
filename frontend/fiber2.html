@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fiber 简单原理（二） | 张宁-个人博客</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="前端、C#、算法、生活......">
+    
+    <link rel="preload" href="/assets/css/0.styles.65a9d785.css" as="style"><link rel="preload" href="/assets/js/app.73819cc8.js" as="script"><link rel="preload" href="/assets/js/2.1d157987.js" as="script"><link rel="preload" href="/assets/js/37.625c187d.js" as="script"><link rel="prefetch" href="/assets/js/10.f7aa8c22.js"><link rel="prefetch" href="/assets/js/11.68be72b2.js"><link rel="prefetch" href="/assets/js/12.2f13c77f.js"><link rel="prefetch" href="/assets/js/13.60fe103f.js"><link rel="prefetch" href="/assets/js/14.c9ded3f6.js"><link rel="prefetch" href="/assets/js/15.c3556b29.js"><link rel="prefetch" href="/assets/js/16.8c54a7e1.js"><link rel="prefetch" href="/assets/js/17.0b820cc5.js"><link rel="prefetch" href="/assets/js/18.64ee49bc.js"><link rel="prefetch" href="/assets/js/19.f28019a2.js"><link rel="prefetch" href="/assets/js/20.d3231e89.js"><link rel="prefetch" href="/assets/js/21.4cef60ce.js"><link rel="prefetch" href="/assets/js/22.670c4a5a.js"><link rel="prefetch" href="/assets/js/23.ab4be979.js"><link rel="prefetch" href="/assets/js/24.59a6b942.js"><link rel="prefetch" href="/assets/js/25.483117e0.js"><link rel="prefetch" href="/assets/js/26.671a06b1.js"><link rel="prefetch" href="/assets/js/27.c3fc8241.js"><link rel="prefetch" href="/assets/js/28.4a9d0045.js"><link rel="prefetch" href="/assets/js/29.59e1c35b.js"><link rel="prefetch" href="/assets/js/3.4103b7e1.js"><link rel="prefetch" href="/assets/js/30.07b4c4e3.js"><link rel="prefetch" href="/assets/js/31.80ddf6b7.js"><link rel="prefetch" href="/assets/js/32.5ac36d6f.js"><link rel="prefetch" href="/assets/js/33.f906ce7a.js"><link rel="prefetch" href="/assets/js/34.ebd39fbe.js"><link rel="prefetch" href="/assets/js/35.cfdae827.js"><link rel="prefetch" href="/assets/js/36.1655e37e.js"><link rel="prefetch" href="/assets/js/38.a7b0b0ff.js"><link rel="prefetch" href="/assets/js/39.40e33dba.js"><link rel="prefetch" href="/assets/js/4.c98340cf.js"><link rel="prefetch" href="/assets/js/40.5fc10627.js"><link rel="prefetch" href="/assets/js/41.fe32f84d.js"><link rel="prefetch" href="/assets/js/42.87fa8e79.js"><link rel="prefetch" href="/assets/js/43.55e09ac6.js"><link rel="prefetch" href="/assets/js/44.70e7a5c0.js"><link rel="prefetch" href="/assets/js/45.3259b240.js"><link rel="prefetch" href="/assets/js/46.1e92f698.js"><link rel="prefetch" href="/assets/js/47.329bf0e4.js"><link rel="prefetch" href="/assets/js/5.ab149363.js"><link rel="prefetch" href="/assets/js/6.dfa8bf1a.js"><link rel="prefetch" href="/assets/js/7.97018498.js"><link rel="prefetch" href="/assets/js/8.6a48e8a0.js"><link rel="prefetch" href="/assets/js/9.9443a568.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.65a9d785.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">张宁-个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/frontend/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/dotnet/" class="nav-link">
+  .NET
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/life/" class="nav-link">
+  生活
+</a></div><div class="nav-item"><a href="https://github.com/nandehutuzn/zn-blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/frontend/" class="nav-link router-link-active">
+  前端
+</a></div><div class="nav-item"><a href="/dotnet/" class="nav-link">
+  .NET
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><a href="/life/" class="nav-link">
+  生活
+</a></div><div class="nav-item"><a href="https://github.com/nandehutuzn/zn-blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Fiber 简单原理（二）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/frontend/fiber2.html#executetask" class="sidebar-link">executeTask</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/frontend/fiber2.html#commitallwork" class="sidebar-link">commitAllWork</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="fiber-简单原理-二"><a href="#fiber-简单原理-二" class="header-anchor">#</a> Fiber 简单原理（二）</h1> <hr> <p><em>2020/10/24</em></p> <h2 id="executetask"><a href="#executetask" class="header-anchor">#</a> executeTask</h2> <div class="custom-block tip"><p>还是先从程序刚启动开始，第一次进入 executeTask 方法，参数 fiber 只有两个属性，一个是要渲染的 virtualDOM，放在fiber.props.children属性上，还有一个是dom，为需要挂载的DOM元素，可以理解为container， 接下来执行 <strong>reconcileChildren()</strong> 方法，传入的两个参数，一个是fiber，另一个就是当前fiber对象下所有子节点的virtualDOM。</p></div> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">arrified</span> <span class="token operator">=</span> <span class="token parameter">arg</span> <span class="token operator">=&gt;</span> Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token operator">?</span> arg <span class="token operator">:</span> <span class="token punctuation">[</span>arg<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">reconcileChildren</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">fiber<span class="token punctuation">,</span> children</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// children 可能是对象，也可能是数组，将children转换成数组</span>
+  <span class="token keyword">const</span> arrifiedChildren <span class="token operator">=</span> <span class="token function">arrified</span><span class="token punctuation">(</span>children<span class="token punctuation">)</span>
+
+  <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">let</span> numberOfElement <span class="token operator">=</span> arrifiedChildren<span class="token punctuation">.</span>length
+  <span class="token keyword">let</span> element <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">let</span> newFiber <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">let</span> prevFiber <span class="token operator">=</span> <span class="token keyword">null</span>
+
+  <span class="token keyword">let</span> alternate <span class="token operator">=</span> <span class="token keyword">null</span>
+
+  <span class="token comment">// 先取出fiber对象之前的备份</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>alternate <span class="token operator">&amp;&amp;</span> fiber<span class="token punctuation">.</span>alternate<span class="token punctuation">.</span>child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    alternate <span class="token operator">=</span> fiber<span class="token punctuation">.</span>alternate<span class="token punctuation">.</span>child
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">while</span><span class="token punctuation">(</span>index <span class="token operator">&lt;</span> numberOfElement <span class="token operator">||</span> alternate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 子级 virtualDOM 对象</span>
+    element <span class="token operator">=</span> arrifiedChildren<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>element <span class="token operator">&amp;&amp;</span> alternate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 删除</span>
+      alternate<span class="token punctuation">.</span>effectTag <span class="token operator">=</span> <span class="token string">'delete'</span>
+      fiber<span class="token punctuation">.</span>effects<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>alternate<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>element <span class="token operator">&amp;&amp;</span> alternate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 更新</span>
+      newFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> element<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+        props<span class="token operator">:</span> element<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
+        tag<span class="token operator">:</span> <span class="token function">getTag</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        effects<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        effectTag<span class="token operator">:</span> <span class="token string">'update'</span><span class="token punctuation">,</span>
+        parent<span class="token operator">:</span> fiber<span class="token punctuation">,</span>
+        alternate
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span>element<span class="token punctuation">.</span>type <span class="token operator">===</span> alternate<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 类型相同</span>
+        newFiber<span class="token punctuation">.</span>stateNode <span class="token operator">=</span> alternate<span class="token punctuation">.</span>stateNode
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        newFiber<span class="token punctuation">.</span>stateNode <span class="token operator">=</span> <span class="token function">createStateNode</span><span class="token punctuation">(</span>newFiber<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>element <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>alternate<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 初始渲染</span>
+      newFiber <span class="token operator">=</span> <span class="token punctuation">{</span>
+        type<span class="token operator">:</span> element<span class="token punctuation">.</span>type<span class="token punctuation">,</span>
+        props<span class="token operator">:</span> element<span class="token punctuation">.</span>props<span class="token punctuation">,</span>
+        tag<span class="token operator">:</span> <span class="token function">getTag</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        effects<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        effectTag<span class="token operator">:</span> <span class="token string">'placement'</span><span class="token punctuation">,</span>
+        parent<span class="token operator">:</span> fiber
+      <span class="token punctuation">}</span>
+  
+      newFiber<span class="token punctuation">.</span>stateNode <span class="token operator">=</span> <span class="token function">createStateNode</span><span class="token punctuation">(</span>newFiber<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>index <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      fiber<span class="token punctuation">.</span>child <span class="token operator">=</span> newFiber
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      prevFiber<span class="token punctuation">.</span>sibling <span class="token operator">=</span> newFiber
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>alternate <span class="token operator">&amp;&amp;</span> alternate<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      alternate <span class="token operator">=</span> alternate<span class="token punctuation">.</span>sibling
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      alternate <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span>
+
+    prevFiber <span class="token operator">=</span> newFiber
+    
+    index<span class="token operator">++</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br></div></div><div class="custom-block tip"><p>先看看fiber对象有哪些属性：</p></div> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  type         节点类型 (元素, 文本, 组件)(具体的类型)
+  props        节点属性
+  stateNode    节点 DOM 对象 | 组件实例对象
+  tag          节点标记 (对具体类型的分类 hostRoot || hostComponent || classComponent || functionComponent)
+  effects      数组, 存储需要更改的 fiber 对象
+  effectTag    当前 Fiber 要被执行的操作 (新增, 删除, 修改)
+  parent       当前 Fiber 的父级 Fiber
+  child        当前 Fiber 的子级 Fiber
+  sibling      当前 Fiber 的下一个兄弟 Fiber
+  alternate    Fiber 备份 fiber 比对时使用
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="custom-block tip"><p>如果是第一次进来，alternate为null，进入循环，取出第一个子级 virtualDOM，转变为一个fiber对象，赋值给当前fiber对象的child属性，这里对child补充下，在正常的virtualDOM树中，因为是一个树结构，所以一个virtualDOM结点会有多个子节点，所有会有一个children:[] 属性，这样也就导致了在执行过程中必须一次性递归完所有结构，比较耗时。所以在fiber数据结构中改变了这种结构，改成链表形式的，一个fiber只有一个child，除此之外，这个fiber还有一个sibling属性，这个结点是child结点的兄弟结点，sibling结点也是一个fiber，所以这样就能以一个链表的形式保存整个virtualDOM树结构。</p> <p>再看看它在while循环里面的赋值，第一次进来，index为0，newFiber作为fiber的child，同时将newFiber赋值给prevFiber缓存起来，将newFiber结点的sibling属性指向下一个同级子节点。</p> <p>如果是第一次进来，还干了一件事，给stateNode属性赋值，这个值有几种情况，可能是一个DOM元素，可能是类组建的实例，也可能是函数组件的函数，这些值都是通过tag属性来标记的。</p> <p>这里我们只处理完一层，回到 executeTask 方法，判断当前fiber对象是否有child属性，从前面可知，如果当前virtualDOM对象还有子节点，那么fiber必然有child属性，并将这个child（Fiber对象）返回到 workLoop 函数，并赋值给 subTask，检查是否还有充足时间，如果有，继续处理返回的child结点后面的结点，如果没有时间，则先给出主线程执行权也无妨，因为我们已经下一个任务的上下文作为一个Fiber对象保存起来了。这个过程可以理解为之前是一棵virtualDOM树一次性处理完，而现在配合Fiber数据结构，我们可以把树结构拆分成一级一级处理，而不丢失树原来的结构。</p> <p>更新运算和第一次的插入运算逻辑差不多，只不过增加一些比对后更新、删除操作，下面我们看看 第二阶段 <strong>commitAllWork()</strong> 方法。</p></div> <h2 id="commitallwork"><a href="#commitallwork" class="header-anchor">#</a> commitAllWork</h2> <div class="custom-block tip"><p>commitAllWork() 方法是一次性将diff后的数据渲染到界面</p></div> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">commitAllWork</span> <span class="token operator">=</span> <span class="token parameter">fiber</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  fiber<span class="token punctuation">.</span>effects<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>tag <span class="token operator">===</span> <span class="token string">'class_component'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      item<span class="token punctuation">.</span>stateNode<span class="token punctuation">.</span>__fiber <span class="token operator">=</span> item
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">'delete'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      item<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>stateNode<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>stateNode<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">'update'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>type <span class="token operator">===</span> item<span class="token punctuation">.</span>alternate<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 节点类型相同</span>
+        <span class="token function">updateNodeElement</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>stateNode<span class="token punctuation">,</span> item<span class="token punctuation">,</span> item<span class="token punctuation">.</span>alternate<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        item<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>stateNode<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>stateNode<span class="token punctuation">,</span> item<span class="token punctuation">.</span>alternate<span class="token punctuation">.</span>stateNode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>effectTag <span class="token operator">===</span> <span class="token string">'placement'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> fiber <span class="token operator">=</span> item
+      <span class="token keyword">let</span> parentFiber <span class="token operator">=</span> item<span class="token punctuation">.</span>parent
+      <span class="token keyword">while</span><span class="token punctuation">(</span>parentFiber<span class="token punctuation">.</span>tag <span class="token operator">===</span> <span class="token string">'class_component'</span> <span class="token operator">||</span> 
+        parentFiber<span class="token punctuation">.</span>tag <span class="token operator">===</span> <span class="token string">'function_component'</span>
+      <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        parentFiber <span class="token operator">=</span> parentFiber<span class="token punctuation">.</span>parent
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>tag <span class="token operator">===</span> <span class="token string">'host_component'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        fiber<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>stateNode<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>stateNode<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>  
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment">// 备份旧的 fiber 对象</span>
+  fiber<span class="token punctuation">.</span>stateNode<span class="token punctuation">.</span>__rootFiberContainer <span class="token operator">=</span> fiber
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><div class="custom-block tip"><p>从代码中可以看到，需要处理的 fiber 对象全都存储在 effects 数组中，那么这个属性是什么时候赋值的呢，是在 <strong>executeTask</strong> 方法内。</p></div> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">executeTask</span> <span class="token operator">=</span> <span class="token parameter">fiber</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>fiber<span class="token punctuation">.</span>child<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> fiber<span class="token punctuation">.</span>child
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> currentExecutelyFiber <span class="token operator">=</span> fiber
+  <span class="token keyword">while</span><span class="token punctuation">(</span>currentExecutelyFiber<span class="token punctuation">.</span>parent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    currentExecutelyFiber<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>effects <span class="token operator">=</span> currentExecutelyFiber<span class="token punctuation">.</span>parent<span class="token punctuation">.</span>effects<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>
+      currentExecutelyFiber<span class="token punctuation">.</span>effects<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token punctuation">[</span>currentExecutelyFiber<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>currentExecutelyFiber<span class="token punctuation">.</span>sibling<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> currentExecutelyFiber<span class="token punctuation">.</span>sibling
+    <span class="token punctuation">}</span>
+    currentExecutelyFiber <span class="token operator">=</span> currentExecutelyFiber<span class="token punctuation">.</span>parent
+  <span class="token punctuation">}</span>
+
+  pendingCommit <span class="token operator">=</span> currentExecutelyFiber
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="custom-block tip"><p>刚才我们是判断当前结点如果还有子节点，则提前返回了，如果已经处理到最后一级结点，没有子节点了，那么需要再进入一个while循环，向上收集所有父节点及父节点的兄弟结点，保存在effects属性中，最后赋值给 <strong>pendingCommit</strong> fiber对象，即这个结点的effects属性就包含了所有需要处理的fiber对象。pendingCommit也作为实参传入到 <strong>commitAllWork()</strong> 方法，effects属性搞清楚了，现在回到 commitAllWork 方法。</p> <p>commitAllWork 方法做的事情就比较清晰明了了，根据 effectTag 属性值做不同的DOM操作，配合fiber对象中的parent、stateNode属性基本能完成对DOM元素的新增、删除、替换、更新操作。前面好像没有提到 <strong>effectTag</strong> 这个属性，fiber.tag是节点标记，可能是根结点，类组件结点，函数组件结点等，而fiber.effectTag 表示当前 fiber 要被执行的操作，新增、删除、修改等。对于它的赋值也是在 <strong>reconcileChildren()</strong> 方法中创建 newFiber 时完成的。</p> <p><a href="https://gitee.com/zn3102090109/fiber.git" target="_blank" rel="noopener noreferrer">项目完整代码<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="/frontend">回首页</a></p></div> <p>（完）</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.73819cc8.js" defer></script><script src="/assets/js/2.1d157987.js" defer></script><script src="/assets/js/37.625c187d.js" defer></script>
+  </body>
+</html>

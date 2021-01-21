@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>几个二叉树相关的算法题 | 张宁-个人博客</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    
+    <meta name="description" content="前端、C#、算法、生活......">
+    
+    <link rel="preload" href="/assets/css/0.styles.65a9d785.css" as="style"><link rel="preload" href="/assets/js/app.73819cc8.js" as="script"><link rel="preload" href="/assets/js/2.1d157987.js" as="script"><link rel="preload" href="/assets/js/5.ab149363.js" as="script"><link rel="prefetch" href="/assets/js/10.f7aa8c22.js"><link rel="prefetch" href="/assets/js/11.68be72b2.js"><link rel="prefetch" href="/assets/js/12.2f13c77f.js"><link rel="prefetch" href="/assets/js/13.60fe103f.js"><link rel="prefetch" href="/assets/js/14.c9ded3f6.js"><link rel="prefetch" href="/assets/js/15.c3556b29.js"><link rel="prefetch" href="/assets/js/16.8c54a7e1.js"><link rel="prefetch" href="/assets/js/17.0b820cc5.js"><link rel="prefetch" href="/assets/js/18.64ee49bc.js"><link rel="prefetch" href="/assets/js/19.f28019a2.js"><link rel="prefetch" href="/assets/js/20.d3231e89.js"><link rel="prefetch" href="/assets/js/21.4cef60ce.js"><link rel="prefetch" href="/assets/js/22.670c4a5a.js"><link rel="prefetch" href="/assets/js/23.ab4be979.js"><link rel="prefetch" href="/assets/js/24.59a6b942.js"><link rel="prefetch" href="/assets/js/25.483117e0.js"><link rel="prefetch" href="/assets/js/26.671a06b1.js"><link rel="prefetch" href="/assets/js/27.c3fc8241.js"><link rel="prefetch" href="/assets/js/28.4a9d0045.js"><link rel="prefetch" href="/assets/js/29.59e1c35b.js"><link rel="prefetch" href="/assets/js/3.4103b7e1.js"><link rel="prefetch" href="/assets/js/30.07b4c4e3.js"><link rel="prefetch" href="/assets/js/31.80ddf6b7.js"><link rel="prefetch" href="/assets/js/32.5ac36d6f.js"><link rel="prefetch" href="/assets/js/33.f906ce7a.js"><link rel="prefetch" href="/assets/js/34.ebd39fbe.js"><link rel="prefetch" href="/assets/js/35.cfdae827.js"><link rel="prefetch" href="/assets/js/36.1655e37e.js"><link rel="prefetch" href="/assets/js/37.625c187d.js"><link rel="prefetch" href="/assets/js/38.a7b0b0ff.js"><link rel="prefetch" href="/assets/js/39.40e33dba.js"><link rel="prefetch" href="/assets/js/4.c98340cf.js"><link rel="prefetch" href="/assets/js/40.5fc10627.js"><link rel="prefetch" href="/assets/js/41.fe32f84d.js"><link rel="prefetch" href="/assets/js/42.87fa8e79.js"><link rel="prefetch" href="/assets/js/43.55e09ac6.js"><link rel="prefetch" href="/assets/js/44.70e7a5c0.js"><link rel="prefetch" href="/assets/js/45.3259b240.js"><link rel="prefetch" href="/assets/js/46.1e92f698.js"><link rel="prefetch" href="/assets/js/47.329bf0e4.js"><link rel="prefetch" href="/assets/js/6.dfa8bf1a.js"><link rel="prefetch" href="/assets/js/7.97018498.js"><link rel="prefetch" href="/assets/js/8.6a48e8a0.js"><link rel="prefetch" href="/assets/js/9.9443a568.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.65a9d785.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">张宁-个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/frontend/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/dotnet/" class="nav-link">
+  .NET
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/life/" class="nav-link">
+  生活
+</a></div><div class="nav-item"><a href="https://github.com/nandehutuzn/zn-blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="/frontend/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/dotnet/" class="nav-link">
+  .NET
+</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link router-link-active">
+  算法
+</a></div><div class="nav-item"><a href="/life/" class="nav-link">
+  生活
+</a></div><div class="nav-item"><a href="https://github.com/nandehutuzn/zn-blog" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>几个二叉树相关的算法题</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/algorithm/20201104.html#前言" class="sidebar-link">前言</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/algorithm/20201104.html#最近公共祖先" class="sidebar-link">最近公共祖先</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/algorithm/20201104.html#到某个结点最短路径" class="sidebar-link">到某个结点最短路径</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/algorithm/20201104.html#某个结点所在层级" class="sidebar-link">某个结点所在层级</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="几个二叉树相关的算法题"><a href="#几个二叉树相关的算法题" class="header-anchor">#</a> 几个二叉树相关的算法题</h1> <hr> <p><em>2020/11/04</em></p> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <div class="custom-block tip"><p>在一个群里看到说，一位35岁的程序员去面试，连二叉树中给定两个结点，求这两个结点最近公共祖先的算法题都做不出来，一群评论都是&quot;活该&quot;的样子，吓得我赶紧写篇文章记录下解法，到时候拿出来看看。</p> <p>由于今天都是二叉树，先给出一个二叉树参数：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/**
+            1
+          2   3
+        4  5 6  7
+      8
+ */</span>
+
+<span class="token keyword">const</span> node8 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">8</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node7 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">7</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node6 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">6</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node5 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node4 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span> left<span class="token operator">:</span> node8 <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node3 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span> left<span class="token operator">:</span> node6<span class="token punctuation">,</span> right<span class="token operator">:</span> node7 <span class="token punctuation">}</span>
+<span class="token keyword">const</span> node2 <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> left<span class="token operator">:</span> node4<span class="token punctuation">,</span> right<span class="token operator">:</span> node5 <span class="token punctuation">}</span>
+<span class="token keyword">const</span> root <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> left<span class="token operator">:</span> node2<span class="token punctuation">,</span> right<span class="token operator">:</span> node3 <span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div></div> <h2 id="最近公共祖先"><a href="#最近公共祖先" class="header-anchor">#</a> 最近公共祖先</h2> <div class="custom-block tip"><p>先思考一下，如果给的节点是4和5，那么他们的最近公共祖先是2，如果是4和6呢，他们最近的公共祖先是根节点1，就是说只要两个结点都在树中，这个公共祖先是肯定存在的，那怎么确定最近的那个呢。我们先假设最近公共祖先不是根结点，而是左右子树中的某一个，我们可以用递归去解决，分别去根节点的左、右子树中找，代码如下：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">findParent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 如果root结点不为 undefined，但是它等于 p 或 q 结点，则直接返回 root 结点</span>
+  <span class="token comment">// 因为p、q 最近公共祖先不可能在 p、q 结点的下面</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root <span class="token operator">||</span> root <span class="token operator">===</span> p <span class="token operator">||</span> root <span class="token operator">===</span> q<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> root
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 分别查看左右子树中是否有目标结点，如果没有，则返回 undefined</span>
+  <span class="token keyword">const</span> left <span class="token operator">=</span> <span class="token function">findParent</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> right <span class="token operator">=</span> <span class="token function">findParent</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> p<span class="token punctuation">,</span> q<span class="token punctuation">)</span>
+
+  <span class="token comment">// left、right 都不为 undefined，那它们的值必然和 p、q 结点对应，说明 root 结点就是我们需要找的结点</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>left <span class="token operator">&amp;&amp;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// p === left &amp;&amp; q === right</span>
+    <span class="token comment">// 或 p === right &amp;&amp; q === left</span>
+    <span class="token keyword">return</span> root
+  <span class="token punctuation">}</span> 
+
+  <span class="token comment">// 如果left、right有一个为 undefined，说明这边子树没有找到，返回不为 undefined 的那个结点</span>
+  <span class="token keyword">return</span> left <span class="token operator">?</span> left <span class="token operator">:</span> right
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p><img src="/assets/img/1104-1.7e712e30.jpg" alt="1104-1"> <img src="/assets/img/1104-2.98c67ad2.jpg" alt="1104-2"></p></div> <h2 id="到某个结点最短路径"><a href="#到某个结点最短路径" class="header-anchor">#</a> 到某个结点最短路径</h2> <div class="custom-block tip"><p>当看到 <strong>最短</strong> 这两个字的时候，首先想到的是广度优先遍历，但是广度优先遍历有一个问题，它的路径不好保存，因为它前后节点之间并没有明确的父子关系。所以就想想深度优先遍历，深度优先遍历路径很明确，并且当它在叶子结点还没有找到的话，还可以回溯到父节点继续去另一个子节点下找，那我们要做的就是增加一个标识，来标识有没有找到，如果没有找到，就需要把当前结点从路径中移除，代码如下</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">miniPath</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> node<span class="token punctuation">,</span> path</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+
+  <span class="token comment">// 如果结点不为空，则将当前结点值加入 path 数组</span>
+  path<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val<span class="token punctuation">)</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>val <span class="token operator">===</span> node<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">// 当前结点还不是目标结点，继续在这个结点的左右子树中找</span>
+  <span class="token keyword">let</span> hasFound <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    hasFound <span class="token operator">=</span> <span class="token function">miniPath</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> node<span class="token punctuation">,</span> path<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>hasFound <span class="token operator">&amp;&amp;</span> root<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    hasFound <span class="token operator">=</span> <span class="token function">miniPath</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> node<span class="token punctuation">,</span> path<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>hasFound<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 左右结点都没有找到，将当前结点从 path 数组中移除</span>
+    path<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> hasFound
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p><img src="/assets/img/1104-3.337c5d89.jpg" alt="1104-3"></p></div> <h2 id="某个结点所在层级"><a href="#某个结点所在层级" class="header-anchor">#</a> 某个结点所在层级</h2> <div class="custom-block tip"><p>这个相比上两个问题就简单些了，没有路径，直接用广度优先遍历，再加个分层标识即可，和上一篇中的 <a href="/algorithm/20201103.html#把二叉树打印成多行">分层打印二叉树</a> 很类似。直接贴代码了：</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token function-variable function">getLevelCount</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">root<span class="token punctuation">,</span> node</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>root<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span>
+
+  <span class="token keyword">let</span> lineLast<span class="token punctuation">,</span> <span class="token comment">// 保存当前层的最后一个结点</span>
+      next<span class="token punctuation">,</span> <span class="token comment">// 下一层的最后一个结点</span>
+      current<span class="token punctuation">,</span> <span class="token comment">// 当前结点</span>
+      levelCount <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">// 层数 </span>
+  <span class="token keyword">const</span> queue <span class="token operator">=</span> <span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token comment">// 树广度优先遍历队列</span>
+  next <span class="token operator">=</span> root <span class="token comment">// 第一层只有一个结点</span>
+  <span class="token keyword">while</span><span class="token punctuation">(</span>queue<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    lineLast <span class="token operator">=</span> next
+
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      current <span class="token operator">=</span> queue<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>val <span class="token operator">===</span> node<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> levelCount
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+        next <span class="token operator">=</span> current<span class="token punctuation">.</span>left
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>current<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
+        next <span class="token operator">=</span> current<span class="token punctuation">.</span>right
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">if</span><span class="token punctuation">(</span>current <span class="token operator">===</span> lineLast<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        levelCount<span class="token operator">++</span>
+        <span class="token keyword">break</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p><img src="/assets/img/1104-4.034c29aa.jpg" alt="1104-4"></p> <p><a href="/algorithm">回首页</a></p></div> <p>（完）</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.73819cc8.js" defer></script><script src="/assets/js/2.1d157987.js" defer></script><script src="/assets/js/5.ab149363.js" defer></script>
+  </body>
+</html>
